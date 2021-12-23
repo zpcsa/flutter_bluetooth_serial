@@ -54,7 +54,7 @@ public abstract class BluetoothConnection
         // Cancel discovery, even though we didn't start it
         bluetoothAdapter.cancelDiscovery();
 
-        socket.connect();
+      
 
         connectionThread = new ConnectionThread(socket);
         connectionThread.start();
@@ -100,6 +100,7 @@ public abstract class BluetoothConnection
             OutputStream tmpOut = null;
 
             try {
+                socket.connect();
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
             } catch (IOException e) {
