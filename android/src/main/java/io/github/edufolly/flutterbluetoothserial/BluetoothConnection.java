@@ -55,7 +55,7 @@ public abstract class BluetoothConnection
         bluetoothAdapter.cancelDiscovery();
 
       
-
+        socket.connect();
         connectionThread = new ConnectionThread(socket);
         connectionThread.start();
     }
@@ -100,7 +100,6 @@ public abstract class BluetoothConnection
             OutputStream tmpOut = null;
 
             try {
-                socket.connect();
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
             } catch (IOException e) {
